@@ -5,74 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>旅游攻略生成助手</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        }
-        body {
-            background-color: #f0f4f8;
-            padding: 20px;
-        }
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            overflow: hidden;
-        }
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 24px;
-            text-align: center;
-        }
-        .header h1 {
-            font-size: 24px;
-            margin-bottom: 8px;
-        }
-        .header p {
-            opacity: 0.9;
-            font-size: 14px;
-        }
-        #coze-chat {
-            height: 750px;
-            width: 100%;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background-color: #f5f7fa; padding: 20px; }
+        .container { max-width: 1000px; margin: 0 auto; background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { color: #333; margin-bottom: 20px; text-align: center; }
+        .chat-iframe { border: none; border-radius: 8px; overflow: hidden; }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>你的专属旅游攻略生成助手</h1>
-            <p>告诉我目的地、出行天数和人数，生成含行程、美食、预算的完整攻略</p>
-        </div>
-        <!-- 聊天窗口容器 -->
-        <div id="coze-chat"></div>
+        <h1>你的专属旅游攻略生成助手</h1>
+        <!-- 粘贴你从扣子官方复制的Iframe代码 -->
+        <iframe class="chat-iframe" src="code.coze.cn/web-sdk/7638155472343810063" width="100%" height="750" frameborder="0"></iframe>
     </div>
-
-    <!-- 引入Coze Web SDK CDN -->
-    <script src="https://lf-cdn.coze.cn/obj/unpkg/latest/coze/web-sdk/dist/js-umd/index.min.js"></script>
-    <script>
-        // 初始化SDK
-        cozeWebSDK.init({
-            projectId: '7638155472343810063', // 你的Agent项目ID（已自动填入）
-            refreshToken: () => Promise.resolve('eyJhbGciOiJSUzI1NiIsImtpZCI6ImZiZTE0YzcyLWZmMDgtNDdjMi1iMmEyLTMzNDg1M2IzOTE2OCJ9.eyJpc3MiOiJodHRwczovL2FwaS5jb3plLmNuIiwiYXVkIjpbIlV3SGVwSjFDR283VlFQSXBxRGVBYTcyakhkODBEWWFhIl0sImV4cCI6ODIxMDI2Njg3Njc5OSwiaWF0IjoxNzc4NDc5OTA3LCJzdWIiOiJzcGlmZmU6Ly9hcGkuY296ZS5jbi93b3JrbG9hZF9pZGVudGl0eS9pZDo3NjM4MTY0NDY5ODMwMzg1Njk4Iiwic3JjIjoiaW5ib3VuZF9hdXRoX2FjY2Vzc190b2tlbl9pZDo3NjM4NTEzMDM4ODczNTkxODI3In0.0fwIyT_y5Zx_3G4lxF2M5DX3-S01ifp1eH87Qy-0s0y2-IRrij-YwN3RMs3_R3Wjku2XDt8ZmRYemb4fqUyf4Jdax9_veqIbYTyDYozQhPBxISQrgZxqbfDyeijbagZeBJOTMI2PMRf0sruWPiG6IGMEVKCRu2X2BJM8QL_RKtx55yRCvDUsGEncALZ2X4w7F9rc0OyT5oZVB2Va7C7-GbqqWz6MBZnSyl7mVCHMpnilqQYpih8qg3-qgFRQ4729Ad4mO9t6wPYKb2NYV1BqVlP1HFM2bfvWpyuPELi9bfwquglWNFxSvbT_hera9D97CxF0_ImXZ9STxztJuH9P7g'), // 替换成你复制的Token
-        });
-
-        // 渲染聊天窗口
-        cozeWebSDK.render({
-            container: document.getElementById('coze-chat'),
-            componentProps: {
-                title: "旅游攻略助手",
-                welcomeMessage: "你好！👋 告诉我目的地、出行天数和人数，我帮你生成专属旅游攻略~",
-                height: "750px",
-                showClearButton: true,
-                showVoiceInput: true,
-            },
-        });
-    </script>
 </body>
 </html>
