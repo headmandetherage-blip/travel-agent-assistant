@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head>
     <meta charset="UTF-8">
+    <title>旅游攻略助手</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>旅游攻略生成助手</title>
-    <!-- 自动跳转配置：3秒后跳转到你的AI助手 -->
-    <meta http-equiv="refresh" content="0;url=https://code.coze.cn/web-sdk/7638155472343810063">
-    <style>
-        body { text-align: center; padding: 50px; font-family: Arial; }
-    </style>
 </head>
 <body>
-    <h1>正在跳转到旅游攻略助手...</h1>
-    <p>如果未自动跳转，请点击上方链接</p>
+    <script src="https://lf-cdn.coze.cn/obj/unpkg/coze-js-sdk/umd/index.js"></script>
+    <div id="bot" style="width:100%;height:800px;"></div>
+    <script>
+        new CozeWebSDK.WebChatClient({
+            config: { bot_id: "7638155472343810063" },
+            componentProps: { title: "旅游攻略生成助手" }
+        }).render('#bot');
+    </script>
 </body>
 </html>
