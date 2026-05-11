@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旅游攻略生成助手</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+        body {
+            background-color: #f0f4f8;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 24px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+        .header p {
+            opacity: 0.9;
+            font-size: 14px;
+        }
+        #coze-chat {
+            height: 750px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>你的专属旅游攻略生成助手</h1>
+            <p>告诉我目的地、出行天数和人数，生成含行程、美食、预算的完整攻略</p>
+        </div>
+        <!-- 聊天窗口容器 -->
+        <div id="coze-chat"></div>
+    </div>
+
+    <!-- 引入Coze Web SDK CDN -->
+    <script src="https://lf-cdn.coze.cn/obj/unpkg/latest/coze/web-sdk/dist/js-umd/index.min.js"></script>
+    <script>
+        // 初始化SDK
+        cozeWebSDK.init({
+            projectId: '7638155472343810063', // 你的Agent项目ID（已自动填入）
+            refreshToken: () => Promise.resolve('eyJhbGciOiJSUzI1NiIsImtpZCI6ImZiZTE0YzcyLWZmMDgtNDdjMi1iMmEyLTMzNDg1M2IzOTE2OCJ9.eyJpc3MiOiJodHRwczovL2FwaS5jb3plLmNuIiwiYXVkIjpbIlV3SGVwSjFDR283VlFQSXBxRGVBYTcyakhkODBEWWFhIl0sImV4cCI6ODIxMDI2Njg3Njc5OSwiaWF0IjoxNzc4NDc3MzgzLCJzdWIiOiJzcGlmZmU6Ly9hcGkuY296ZS5jbi93b3JrbG9hZF9pZGVudGl0eS9pZDo3NjM4MTY0NDY5ODMwMzg1Njk4Iiwic3JjIjoiaW5ib3VuZF9hdXRoX2FjY2Vzc190b2tlbl9pZDo3NjM4NTAyMTk3MzQ4NTMyMjc2In0.EnKP8ZDtSY8hD7o6YphsqXojY1ShczlLSYUvbRSDEu5yFgfQ7nn3lN0LNCQTpHGoyHkbemXyQ2j0_F0ynnHWa_EPPH-RLS7PN29vrDSJQa7WnS5xFlt4AnOMoPo71zAhDdil6Vi-Z6ro7-ublRbj5MwHLkz9OsufLIvwYnJn1uKuxmhUzO20x0G6d2v03tcOgKb8FK5xz9Af_OogEF5oqFcQniR7w0S_3ZwHFeTI5DdE8F89-V8sVoBUz4mvcTLhadmOH39RWzs_nbcjD4Q4Om590NLGm8TsE5jF2pXOQwf0-FHyf4tHBHHehrXl55YNb7G7jU-bTyFN_LIKS5893Q'), // 替换成你复制的Token
+        });
+
+        // 渲染聊天窗口
+        cozeWebSDK.render({
+            container: document.getElementById('coze-chat'),
+            componentProps: {
+                title: "旅游攻略助手",
+                welcomeMessage: "你好！👋 告诉我目的地、出行天数和人数，我帮你生成专属旅游攻略~",
+                height: "750px",
+                showClearButton: true,
+                showVoiceInput: true,
+            },
+        });
+    </script>
+</body>
+</html>
